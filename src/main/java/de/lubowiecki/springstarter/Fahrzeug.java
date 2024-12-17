@@ -1,13 +1,22 @@
 package de.lubowiecki.springstarter;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "fahrzeuge")
 public class Fahrzeug {
+
+    @Id // PrimeryKey
+    @GeneratedValue // AutoIncrement
+    private int id;
 
     private String kennzeichen;
     private String marke;
     private String modell;
     private int baujahr;
+
+    @Enumerated(EnumType.STRING)
     private Zustand zustand;
 
     public Fahrzeug() {
