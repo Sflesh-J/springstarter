@@ -23,12 +23,45 @@
             <div class="col">
                 <h1 th:text="${headline}"></h1>
             </div>
-            <div class="col">
+        </div>
+
+        <div class="row">
+            <div class="col-6">
                 <form action="/vehicles/save" method="post">
 
-                    <label for="kennzeichen"></label>
-                    <input type="text" name="kennzeichen" id="kenzeichen">
-                    
+                    <div class="mb3">
+                        <label for="kennzeichen" class="form-label">Kennzeichen</label>
+                        <input type="text" name="kennzeichen" id="kennzeichen" class="form-control">
+                    </div>
+
+                    <div class="mb3">
+                        <label for="marke" class="form-label">Marke</label>
+                        <input type="text" name="marke" id="marke" class="form-control">
+                    </div>
+
+                    <div class="mb3">
+                        <label for="modell" class="form-label">Modell</label>
+                        <input type="text" name="modell" id="modell" class="form-control">
+                    </div>
+
+                    <div class="mb3">
+                        <label for="baujahr" class="form-label">Baujahr</label>
+                        <input type="text" name="baujahr" id="baujahr" class="form-control">
+                    </div>
+
+                    <div class="mb3">
+                        <label for="zustand" class="form-label">Zustand</label>
+                        <select name="zustand" id="zustand" class="form-select">
+                            <option value="NEU">neu</option>
+                            <option value="REPARATUR">Reparatur</option>
+                            <option value="INSPEKTION">Inspektion</option>
+                            <option value="GELOESCHT">gelöscht</option>
+                        </select>
+                    </div>
+
+                    <div class="mb3">
+                        <button class="btn btn-success">Speichern</button>
+                    </div>
                 </form>
             </div>
         </div>        

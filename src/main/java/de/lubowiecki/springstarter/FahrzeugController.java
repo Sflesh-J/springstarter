@@ -21,11 +21,6 @@ public class FahrzeugController {
     public String index(Model ui) {
         // Text wird an das Template geschickt
         ui.addAttribute("headline", "Herzlich Willkommen");
-
-        // Insert
-        Fahrzeug f = new Fahrzeug("HH:AB123", "Vw", "Polo", 2000, Zustand.INSPEKTION);
-        repository.save(f);
-
         return "standard";
     }
 
@@ -39,8 +34,9 @@ public class FahrzeugController {
     }
 
     @PostMapping("/vehicles/save")
-    public String saveFahrzeug(Model ui) {
-        return "";
+    public String saveFahrzeug(Fahrzeug fahrzeug, Model ui) {
+        repository.save(fahrzeug);
+        return "redirect:/vehicles/list";
     }
 
     @GetMapping("/vehicles/list")
