@@ -30,6 +30,10 @@ public class Fahrzeug {
         this.zustand = zustand;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public String getKennzeichen() {
         return kennzeichen;
     }
