@@ -34,7 +34,7 @@ public class FahrzeugController {
     }
 
     @PostMapping("/vehicles/save")
-    public String saveFahrzeug(Fahrzeug fahrzeug, Model ui) {
+    public String saveFahrzeug(Fahrzeug fahrzeug) {
         repository.save(fahrzeug);
         return "redirect:/vehicles/list";
     }
@@ -42,7 +42,8 @@ public class FahrzeugController {
     @GetMapping("/vehicles/list")
     public String fahrzeugList(Model ui) {
         ui.addAttribute("headline", "Unsere Fahrzeuge");
-        return "standard";
+        ui.addAttribute("fahrzeuge", repository.findAll());
+        return "vehicles-list";
     }
 
     @GetMapping("/services")

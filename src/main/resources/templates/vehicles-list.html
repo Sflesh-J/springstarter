@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="container">
+        <ul class="nav">
+            <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="/services" class="nav-link">Services</a></li>
+            <li class="nav-item"><a href="/about" class="nav-link">Über uns</a></li>
+            <li class="nav-item"><a href="/contact" class="nav-link">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+
+        <div class="row">
+            <div class="col">
+                <h1 th:text="${headline}"></h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Kenzeichen</th>
+                            <th>Marke</th>
+                            <th>Modell</th>
+                            <th>Baujahr</th>
+                            <th>Zustand</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="fahrzeug : ${fahrzeuge}">
+                            <td th:text="${fahrzeug.kennzeichen}"></td>
+                            <td th:text="${fahrzeug.marke}"></td>
+                            <td th:text="${fahrzeug.modell}"></td>
+                            <td th:text="${fahrzeug.baujahr}"></td>
+                            <td th:text="${fahrzeug.zustand}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>        
+
+    </main>
+
+    <script src="/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
