@@ -3,6 +3,8 @@ package de.lubowiecki.springstarter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
@@ -27,7 +29,27 @@ public class FahrzeugController {
         return "standard";
     }
 
-    @RequestMapping("/services")
+    // Http-Methoden: GET, POST, PUT, DELETE, HEAD
+
+    // http://localhost:8080/vehicles/add
+    @GetMapping("/vehicles/add")
+    public String fahrzeugForm(Model ui) {
+        ui.addAttribute("headline", "Neues Fahrzeug");
+        return "vehicles-form";
+    }
+
+    @PostMapping("/vehicles/save")
+    public String saveFahrzeug(Model ui) {
+        return "";
+    }
+
+    @GetMapping("/vehicles/list")
+    public String fahrzeugList(Model ui) {
+        ui.addAttribute("headline", "Unsere Fahrzeuge");
+        return "standard";
+    }
+
+    @GetMapping("/services")
     public String services(Model ui) {
         ui.addAttribute("headline", "Usere Services");
 
@@ -41,13 +63,13 @@ public class FahrzeugController {
         return "standard";
     }
 
-    @RequestMapping("/about")
+    @GetMapping("/about")
     public String about(Model ui) {
         ui.addAttribute("headline", "Bisschen was über uns!");
         return "standard";
     }
 
-    @RequestMapping("/contact")
+    @GetMapping("/contact")
     public String contact(Model ui) {
         ui.addAttribute("headline", "Schreiben Sie uns.");
         return "standard";
